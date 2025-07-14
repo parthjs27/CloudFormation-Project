@@ -1,14 +1,14 @@
 AWSTemplateFormatVersion: '2010-09-09'
-Description: Static Website Hosting on EC2 with Public VPC Setup
+Description: Static Website Hosting on EC2 (Ubuntu) in Public VPC
 
 Mappings:
   RegionMap:
     ap-south-1:
-      AMI: ami-0c1a7f89451184c8b
+      AMI: ami-0aa2b7722dc1b5612  # Ubuntu 20.04 LTS (Mumbai)
     us-east-1:
-      AMI: ami-0c02fb55956c7d316
+      AMI: ami-053b0d53c279acc90  # Ubuntu 20.04 LTS (N. Virginia)
     us-west-1:
-      AMI: ami-0e38c97339f4c3a64
+      AMI: ami-0b2f6494ff0b07a0e  # Ubuntu 20.04 LTS (N. California)
 
 Resources:
 
@@ -85,15 +85,16 @@ Resources:
       UserData:
         Fn::Base64: !Sub |
           #!/bin/bash
-          yum update -y
-          yum install -y httpd git
-          systemctl start httpd
-          systemctl enable httpd
+          apt update -y
+          apt install -y apache2 git
+          systemctl start apache2
+          systemctl enable apache2
           cd /var/www/html
           git clone https://github.com/parthjs27/CloudFormation-Project.git
           cp -r CloudFormation-Project/mysite/* .
+          chown -R www-data:www-data /var/www/html
 
 Outputs:
   WebsiteURL:
-    Description: Access your website here
+    Description: Access your static site here
     Value: !Sub "http://${WebServerInstance.PublicDnsName}"
