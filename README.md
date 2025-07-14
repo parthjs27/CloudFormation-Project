@@ -26,14 +26,13 @@ This project uses **AWS CloudFormation** to deploy a static website hosted on an
     │   └── readme.txt
     │
     ├── output_images/           # Screenshots or diagrams
-    │   └── architecture-diagram.png
     │
     ├── static_hosting.yaml      # CloudFormation template
     ├── README.md                # Project documentation
 
 ```
-
-![Architecture Diagram](./assets/architecture-diagram.png)
+### Project Output
+![Website](output_images/1.png)
 
 ---
 
