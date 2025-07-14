@@ -1,14 +1,14 @@
 AWSTemplateFormatVersion: '2010-09-09'
-Description: Static Website Hosting on EC2 (Ubuntu) in Public VPC
+Description: Static Website Hosting on EC2 (Ubuntu 22.04) in Public VPC
 
 Mappings:
   RegionMap:
     ap-south-1:
-      AMI: ami-0aa2b7722dc1b5612  # Ubuntu 20.04 LTS (Mumbai)
+      AMI: ami-021a584b49225376d  # Ubuntu 22.04 LTS (Mumbai)
     us-east-1:
-      AMI: ami-053b0d53c279acc90  # Ubuntu 20.04 LTS (N. Virginia)
+      AMI: ami-0fc5d935ebf8bc3bc  # Ubuntu 22.04 LTS (Virginia, example)
     us-west-1:
-      AMI: ami-0b2f6494ff0b07a0e  # Ubuntu 20.04 LTS (N. California)
+      AMI: ami-0a2abab4107669c1b  # Ubuntu 22.04 LTS (California, example)
 
 Resources:
 
@@ -96,5 +96,6 @@ Resources:
 
 Outputs:
   WebsiteURL:
-    Description: Access your static site here
-    Value: !Sub "http://${WebServerInstance.PublicDnsName}"
+    Description: Access your static website at
+    Value: !Sub "http://${WebServerInstance.PublicIp}"
+
