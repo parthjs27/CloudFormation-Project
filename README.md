@@ -9,7 +9,7 @@ This project uses **AWS CloudFormation** to deploy a static website hosted on an
 - Custom **VPC** with public subnet
 - **Internet Gateway** and route configuration
 - **Security Group** allowing HTTP and SSH access
-- **EC2 instance** (Amazon Linux 2, `t2.micro`)
+- **EC2 instance** (Ubuntu 22.04 LTS, `t2.micro`)
 - **Apache web server** setup
 - **Git clone** of static site from this GitHub repo
 - Automatic deployment via **CloudFormation YAML**
@@ -40,13 +40,5 @@ This project uses **AWS CloudFormation** to deploy a static website hosted on an
 
 - An AWS account
 - An EC2 Key Pair (`.pem`) in the region you're deploying
-- Your GitHub static site stored in the `mysite/` folder of this repo (✅ already done!)
 
 ---
-
-## 🚀 How to Deploy
-
-1. Clone this repo:
-   ```bash
-   git clone https://github.com/parthjs27/CloudFormation-Project.git
-   cd CloudFormation-Project
