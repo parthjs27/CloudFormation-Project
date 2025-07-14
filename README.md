@@ -40,5 +40,5 @@ This project uses **AWS CloudFormation** to deploy a static website hosted on an
 
 - An AWS account
 - An EC2 Key Pair (`.pem`) in the region you're deploying
-
+- Prior knowledge about YAML
 ---
